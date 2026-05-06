@@ -46,18 +46,30 @@ The code begins by importing essential scientific libraries:
 
 ---
 
-### Step 2 — Data Ingestion & Cleaning
+### Step 2 — Data Ingestion \& Cleaning
 
-The pipeline fetches daily close prices for a universe of **10 global macro assets** via the Yahoo Finance API:
+The pipeline fetches daily close prices for a universe of **10 global macro assets** via the Yahoo Finance API. This ensures the data is publicly sourced, reproducible, and adjusted for corporate actions.
 
-| Asset Class | Tickers |
-|---|---|
-| **FX Majors** | `EURUSD=X`, `GBPUSD=X`, `AUDUSD=X`, `CAD=X`, `CHF=X`, `JPY=X` |
-| **Commodities** | `CL=F` (Crude Oil), `GC=F` (Gold) |
-| **Equities** | `^GSPC` (S&P 500) |
-| **Fixed Income** | `^TNX` (10Y Treasury Yield) |
+| Asset Class | Ticker | Description |
+|---|---|---|
+| **Equities** | `^GSPC` | S&P 500 Index (Market Beta) |
+| **Rates** | `^TNX` | 10-Year Treasury Yield (Cost of Capital) |
+| **Commodities** | `CL=F` | Crude Oil Futures (Inflation/Industrial Demand) |
+| **Commodities** | `GC=F` | Gold Futures (Safe Haven/Fiat Hedge) |
+| **FX Majors** | `EURUSD=X` | Euro / US Dollar |
+| **FX Majors** | `GBPUSD=X` | British Pound / US Dollar |
+| **FX Majors** | `AUDUSD=X` | Australian Dollar / US Dollar (Commodity Currency) |
+| **FX Majors** | `JPY=X` | US Dollar / Japanese Yen (Funding/Carry) |
+| **FX Majors** | `CHF=X` | US Dollar / Swiss Franc (Safe Haven FX) |
+| **FX Majors** | `CAD=X` | US Dollar / Canadian Dollar |
 
-Missing values (NaN) in the raw price matrix are handled via forward-fill imputation, ensuring temporal continuity of the cross-asset panel. This mirrors the `SimpleImputer(strategy="constant", fill_value=0)` step in the reference notebook, adapted for financial time series where forward-filling is the standard practice.
+#### Data Sourcing
+The data is pulled programmatically using the `yfinance` library. The ingestion script handles:
+- **Temporal Alignment:** Synchronizing holiday calendars across global exchanges.
+- **Forward-Filling:** Handling non-synchronous asset close times.
+- **Log-Transformation:** Converting raw prices into stationary return manifolds.
+
+---
 
 ---
 
@@ -279,45 +291,48 @@ The PCA Regime-Based Strategy was backtested against a naive 100% S&P 500 Buy & 
 
 ---
 
-## Installation & Run Guide
+## 🚀 Getting Started (Launch Guide)
 
-### Prerequisites
-- Python 3.12+
-- Node.js 18+
+Follow these steps to deploy the quantitative engine and the research dashboard on your local machine.
 
-### 1. Clone \& Setup Backend
+### 1. Repository Initialization
 ```bash
 git clone https://github.com/KQaidAkram/pca-market-detector.git
 cd pca-market-detector
+```
 
-# Create virtual environment
-python -m venv PCA
-.\PCA\Scripts\activate    # Windows
-source PCA/bin/activate   # Linux/Mac
+### 2. Backend Environment Setup (Python)
+The backend manages data ingestion, PCA eigendecomposition, and the FastAPI REST server.
+```bash
+# Create and activate virtual environment
+python -m venv venv
+.\venv\Scripts\activate    # Windows
+source venv/bin/activate   # Linux/Mac
 
-# Install dependencies
+# Install quantitative dependencies
 pip install -r requirements.txt
-```
 
-### 2. Run the Quantitative Pipeline
-This fetches market data, runs ADF proofs, executes rolling PCA, and performs the backtest:
-```bash
+# Option A: Run the full pipeline (Data -> PCA -> Backtest)
 python main.py
-```
 
-### 3. Start the API Server
-```bash
+# Option B: Launch the API Server for the Dashboard
 python main.py --serve
-# Server starts at http://127.0.0.1:8080
 ```
 
-### 4. Start the Frontend
+### 3. Frontend Environment Setup (React)
+The frontend provides the "Cyber-HUD" 3D visualization and performance analytics.
 ```bash
 cd frontend
 npm install
+
+# Launch the development server
 npm run dev
-# Dashboard at http://localhost:5173
 ```
+
+### 4. Accessing the System
+- **Research Dashboard:** [http://localhost:5173](http://localhost:5173)
+- **API Documentation:** [http://127.0.0.1:8080/docs](http://127.0.0.1:8080/docs)
+- **Mathematical Proofs:** [http://localhost:5173/proofs](http://localhost:5173/proofs)
 
 ---
 
