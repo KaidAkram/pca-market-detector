@@ -1,0 +1,52 @@
+{
+    "AUDUSD=X": {
+        "p_value": 0.0,
+        "is_stationary": true,
+        "test_statistic": -31.17567161973264
+    },
+    "CAD=X": {
+        "p_value": 0.0,
+        "is_stationary": true,
+        "test_statistic": -24.713514226410148
+    },
+    "CHF=X": {
+        "p_value": 0.0,
+        "is_stationary": true,
+        "test_statistic": -30.235795017633265
+    },
+    "CL=F": {
+        "p_value": 1.8630333146820237e-06,
+        "is_stationary": true,
+        "test_statistic": -5.522604156628007
+    },
+    "EURUSD=X": {
+        "p_value": 0.0,
+        "is_stationary": true,
+        "test_statistic": -30.830891667559165
+    },
+    "GBPUSD=X": {
+        "p_value": 2.1319154881026575e-27,
+        "is_stationary": true,
+        "test_statistic": -14.796452592132116
+    },
+    "GC=F": {
+        "p_value": 1.1484745834975139e-27,
+        "is_stationary": true,
+        "test_statistic": -14.984683200597024
+    },
+    "JPY=X": {
+        "p_value": 0.0,
+        "is_stationary": true,
+        "test_statistic": -31.40194165060932
+    },
+    "^GSPC": {
+        "p_value": 1.5263353678080493e-15,
+        "is_stationary": true,
+        "test_statistic": -9.24717105756237
+    },
+    "^TNX": {
+        "p_value": 2.837424238537718e-08,
+        "is_stationary": true,
+        "test_statistic": -6.335494852628623
+    }
+}

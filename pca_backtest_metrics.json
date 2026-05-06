@@ -1,0 +1,8 @@
+{
+    "strategy_total_return": 56.44,
+    "benchmark_total_return": 88.98,
+    "strategy_max_drawdown": -28.2,
+    "benchmark_max_drawdown": -27.11,
+    "strategy_sharpe": 1.07,
+    "benchmark_sharpe": 0.967
+}

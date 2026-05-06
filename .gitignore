@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+env/
+venv/
+ENV/
+
+# Node
+node_modules/
+dist/
+dist-ssr
+*.local
+
+# Binaries & Large Files
+tectonic.exe
+tectonic.zip
+
+# LaTeX intermediate files
+publication/*.aux
+publication/*.fdb_latexmk
+publication/*.fls
+publication/*.log
+publication/*.synctex.gz
+publication/*.toc
+
+# OS
+.DS_Store
+Thumbs.db

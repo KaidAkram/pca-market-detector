@@ -1,0 +1,13 @@
+yfinance
+pandas
+numpy
+fastapi
+uvicorn
+pydantic
+statsmodels
+framer-motion
+axios
+recharts
+lucide-react
+matplotlib
+seaborn
