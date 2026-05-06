@@ -297,7 +297,7 @@ Follow these steps to deploy the quantitative engine and the research dashboard 
 
 ### 1. Repository Initialization
 ```bash
-git clone https://github.com/KQaidAkram/pca-market-detector.git
+git clone https://github.com/KaidAkram/pca-market-detector.git
 cd pca-market-detector
 ```
 
